@@ -8,9 +8,11 @@ public class open_inventory_menu : MonoBehaviour
     public GameObject interactionInstructions;
     public GameObject inventory;
     public GameObject inventorySpot;
+    private Animator animation_controller;
 
     private void Start()
     {
+        animation_controller = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,8 +28,9 @@ public class open_inventory_menu : MonoBehaviour
             {
                 interactionInstructions.SetActive(false);
                 inventory.SetActive(true);
+                animation_controller.SetBool("inMenu", true);
             }
-            else
+            else if(!animation_controller.GetBool("inMenu")) //if we didn't open the menu, then keep telling us how to 
             {
                 interactionInstructions.SetActive(true);
                 inventory.SetActive(false);

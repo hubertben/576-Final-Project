@@ -62,7 +62,7 @@ public class player_movement : MonoBehaviour
             transform.Rotate(new Vector3(0.0f, 0.75f, 0.0f));
         }
 
-        if(animation_controller.GetCurrentAnimatorStateInfo(0).IsName("Idle01")) //if no forward/backward motion at all
+        if(animation_controller.GetCurrentAnimatorStateInfo(0).IsName("Idle01") || animation_controller.GetCurrentAnimatorStateInfo(0).IsName("Idle03")) //if no forward/backward motion at all, or in a menu
         {
             velocity = 0;
         }
