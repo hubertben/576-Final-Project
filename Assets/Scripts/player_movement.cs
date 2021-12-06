@@ -14,6 +14,7 @@ public class player_movement : MonoBehaviour
     private float backwards_velocity;
     private float crouch_velocity;
     private float jump_velocity;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,12 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow)) //forward motion of any kind
+        if(Input.GetMouseButtonDown(0))
+        {
+            animation_controller.SetTrigger("isAttacking");
+        }
+
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) //forward motion of any kind
         {
             animation_controller.SetBool("isWalking", true);
             velocity = Mathf.Min(velocity + 0.025f, walking_velocity);
@@ -53,11 +59,11 @@ public class player_movement : MonoBehaviour
             animation_controller.SetBool("isRunning", false);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow)) //turn left
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) //turn left
         {
             transform.Rotate(new Vector3(0.0f, -0.75f, 0.0f));
         }
-        else if (Input.GetKey(KeyCode.RightArrow)) //turn right
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) //turn right
         {
             transform.Rotate(new Vector3(0.0f, 0.75f, 0.0f));
         }

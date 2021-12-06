@@ -56,6 +56,10 @@
     <Compile Include="Assets\Scripts\player_movement.cs" />
     <Compile Include="Assets\Scripts\open_inventory_menu.cs" />
     <Compile Include="Assets\Scripts\close_inventory_menu.cs" />
+    <Compile Include="Assets\Scripts\sword_motion.cs" />
+    <Compile Include="Assets\Scripts\gun_behavior.cs" />
+    <Compile Include="Assets\Scripts\camera_manager.cs" />
+    <Compile Include="Assets\Scripts\projectile_motion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PartyMonsterRumblePBR\How to make modular character.txt" />
