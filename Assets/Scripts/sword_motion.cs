@@ -5,6 +5,7 @@ using UnityEngine;
 public class sword_motion : MonoBehaviour
 {
     private Animator animcon;
+    public Animator playerAnimCon;
 
     private void Start()
     {
@@ -14,7 +15,10 @@ public class sword_motion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetMouseButtonDown(0) && animcon.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        transform.position = new Vector3(playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position.x, 
+                                         playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position.y + 0.6f, 
+                                         playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position.z);
+        if (Input.GetMouseButtonDown(0) && animcon.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             animcon.SetTrigger("SwingingSword");
         }

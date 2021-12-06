@@ -32,7 +32,12 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) //forward motion of any kind
+        if(Input.GetMouseButtonDown(0))
+        {
+            animation_controller.SetTrigger("isAttacking");
+        }
+
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) //forward motion of any kind
         {
             animation_controller.SetBool("isWalking", true);
             velocity = Mathf.Min(velocity + 0.025f, walking_velocity);

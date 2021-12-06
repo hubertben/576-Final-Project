@@ -599,7 +599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3440063896050905991, guid: 9ed46828caf4aac49ba8f91d74a64dc8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3440063896051068839, guid: 9ed46828caf4aac49ba8f91d74a64dc8, type: 3}
       propertyPath: m_RootOrder
@@ -970,22 +970,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 9105315542713420924, guid: e15ae7e93d7c6e3408bc1b2117e8cc1c, type: 3}
   m_PrefabInstance: {fileID: 1006696250}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &1455424952
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455424945}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: e3bbd12d0f1acda4e8ac23ce0385dffb, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: e3bbd12d0f1acda4e8ac23ce0385dffb, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &1478318690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000010286598784, guid: 9bb7bf8080358e349b16f477ea2a65e4, type: 3}
@@ -1003,6 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c922556439a7f594c91be881e377f985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimCon: {fileID: 1455424951}
 --- !u!1 &1478970160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010286598784, guid: 9bb7bf8080358e349b16f477ea2a65e4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012288636750, guid: 9bb7bf8080358e349b16f477ea2a65e4, type: 3}
       propertyPath: m_RootOrder
@@ -1409,6 +1394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5190a3d8ec05bf4bb3b1335b292ee23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimCon: {fileID: 1455424951}
 --- !u!1 &2112916925
 GameObject:
   m_ObjectHideFlags: 0
