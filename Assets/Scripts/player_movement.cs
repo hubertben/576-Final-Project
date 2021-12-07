@@ -32,6 +32,14 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameObject.Find("BasicBomb"))
+        {
+            animation_controller.SetBool("usingBomb", true);
+        }
+        else
+        {
+            animation_controller.SetBool("usingBomb", true);
+        }
         if(Input.GetMouseButtonDown(0))
         {
             animation_controller.SetTrigger("isAttacking");
@@ -68,7 +76,7 @@ public class player_movement : MonoBehaviour
             transform.Rotate(new Vector3(0.0f, 0.75f, 0.0f));
         }
 
-        if(animation_controller.GetCurrentAnimatorStateInfo(0).IsName("Idle01") || animation_controller.GetCurrentAnimatorStateInfo(0).IsName("Idle03")) //if no forward/backward motion at all, or in a menu
+        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow)) //if no forward/backward motion at all, or in a menu
         {
             velocity = 0;
         }
