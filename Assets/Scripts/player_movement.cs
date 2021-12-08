@@ -32,13 +32,13 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("BasicBomb"))
+        if(GameObject.Find("BasicBomb") != null)
         {
             animation_controller.SetBool("usingBomb", true);
         }
         else
         {
-            animation_controller.SetBool("usingBomb", true);
+            animation_controller.SetBool("usingBomb", false);
         }
         if(Input.GetMouseButtonDown(0))
         {
