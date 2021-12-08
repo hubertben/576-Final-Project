@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class bomb_behavior : MonoBehaviour
 {
+    public GameObject spawnSpot;
+    public GameObject smokeCloud;
     public float bomb_timer_threshold;
     public float force_strength;
     private float bomb_timer;
@@ -14,6 +16,11 @@ public class bomb_behavior : MonoBehaviour
         if(gameObject.name.Contains("Clone")) 
         {
             bomb_timer = bomb_timer_threshold;
+        }
+        else
+        {
+            //essentially we always have one parent bomb that's just chilling here
+            GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 
@@ -38,11 +45,19 @@ public class bomb_behavior : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0) && bomb_timer >= bomb_timer_threshold && !gameObject.name.Contains("Clone"))
         {
-            GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
+            GameObject clone = Instantiate(gameObject, spawnSpot.transform.position, spawnSpot.transform.rotation);
             clone.GetComponent<MeshRenderer>().enabled = true;
+            clone.GetComponent<CapsuleCollider>().enabled = true;
             clone.GetComponent<Rigidbody>().useGravity = true;
             clone.GetComponent<Rigidbody>().AddForce(clone.transform.up * force_strength); //we use TRANSFORM.UP here because I rotated the model to make more sense
             bomb_timer -= bomb_timer_threshold;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        Instantiate(smokeCloud, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
