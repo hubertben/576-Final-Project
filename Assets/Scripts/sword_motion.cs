@@ -21,6 +21,25 @@ public class sword_motion : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && animcon.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             animcon.SetTrigger("SwingingSword");
+            if(gameObject.name.Contains("Master"))
+            {
+                //spawn master sword projectile
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(gameObject.name.Contains("Advanced"))
+        {
+            Debug.Log("slash");
+            //reflect projectile
+                //check that the name of the object in the collision is enemy projectile or something
+                //invert its direction
+        }
+        else
+        {
+            //if name is not BigBossEnemy destroy it
         }
     }
 }

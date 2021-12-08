@@ -16,7 +16,7 @@ public class gun_behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position;
+        gameObject.transform.position = playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position;
         if (Input.GetMouseButtonDown(0) && animcon.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             animcon.SetTrigger("ShootingProjectile");
