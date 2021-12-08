@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33718848779297538}
   - component: {fileID: 23341243607513584}
   m_Layer: 0
-  m_Name: Rocket24_Pink
+  m_Name: AdvancedBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

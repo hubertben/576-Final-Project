@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a21726bed8954c8c78687d55b69c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSpot: {fileID: 0}
+  spawnSpot: {fileID: 7463467075937420584, guid: 1cadb0c96118c7f4684aa365edae62b2, type: 3}
   smokeCloud: {fileID: 7147543579196524969, guid: 1fad2b5f55487834aa83f6323caa3d09, type: 3}
   bomb_timer_threshold: 0.75
   force_strength: 750

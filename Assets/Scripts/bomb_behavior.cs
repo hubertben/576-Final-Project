@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class bomb_behavior : MonoBehaviour
 {
-    public GameObject spawnSpot;
-    public GameObject smokeCloud;
-    public float bomb_timer_threshold;
-    public float force_strength;
+    public GameObject spawnSpot; //empty gameobject to spawn bombs at 
+    public GameObject smokeCloud; //smoke cloud to spawn after bomb makes contace with something
+    public float bomb_timer_threshold; //how long in between 
+    public float force_strength; //howw hard a bomb is thrown
+
     private float bomb_timer;
+
     void Start()
     {
         bomb_timer = 0.0f;
+        
         //this is just a hack to make thrown bombs visible
         if(gameObject.name.Contains("Clone")) 
         {
@@ -22,16 +25,17 @@ public class bomb_behavior : MonoBehaviour
             //essentially we always have one parent bomb that's just chilling here
             GetComponent<CapsuleCollider>().enabled = false;
         }
+
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         bomb_timer += Time.deltaTime;
-        //only display a bomb over our head if we can throw one
-        if(bomb_timer < bomb_timer_threshold)
+        if (bomb_timer < bomb_timer_threshold)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+           gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
         else
         {
@@ -43,6 +47,8 @@ public class bomb_behavior : MonoBehaviour
         {
             bomb_timer = bomb_timer_threshold;
         }
+
+        //if we can throw a bomb, do it
         if(Input.GetMouseButtonDown(0) && bomb_timer >= bomb_timer_threshold && !gameObject.name.Contains("Clone"))
         {
             GameObject clone = Instantiate(gameObject, spawnSpot.transform.position, spawnSpot.transform.rotation);

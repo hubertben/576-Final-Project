@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33026867126948542}
   - component: {fileID: 23958981211063902}
   m_Layer: 0
-  m_Name: Rocket30_Red
+  m_Name: MasterBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
