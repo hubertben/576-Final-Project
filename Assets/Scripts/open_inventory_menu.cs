@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class open_inventory_menu : MonoBehaviour
 {
+    public Button basicSword_button;
+    public Button basicGun_button;
+    public Button basicBomb_button;
+    public Button advancedSword_button;
+    public Button advancedGun_button;
+    public Button advancedBomb_button;
+    public Button masterSword_button;
+    public Button masterGun_button;
+    public Button masterBomb_button;
 
     private int temp_index = 0;
 
@@ -43,11 +52,61 @@ public class open_inventory_menu : MonoBehaviour
         animation_controller = GetComponent<Animator>();
         init_canvas();
         init_weapons();
+        init_buttons();
 
         unlock_item(0);
         unlock_item(8);
 
         unlock_item(4);
+    }
+
+    private void init_buttons(){
+        Button btn = basicSword_button.GetComponent<Button>();
+	    btn.onClick.AddListener(() => {
+            activate_weapon(basicSword);
+        });
+
+        btn = basicGun_button.GetComponent<Button>();
+        btn.onClick.AddListener(() => {
+            activate_weapon(basicGun);
+        });
+
+        btn = basicBomb_button.GetComponent<Button>();
+        btn.onClick.AddListener(() => {
+            activate_weapon(basicBomb);
+        });
+
+        btn = advancedSword_button.GetComponent<Button>();
+        btn.onClick.AddListener(() => {
+            activate_weapon(advancedSword);
+        });
+
+        btn = advancedGun_button.GetComponent<Button>();
+        btn.onClick.AddListener(() => {
+            activate_weapon(advancedGun);
+        });
+
+        btn = advancedBomb_button.GetComponent<Button>();
+        btn.onClick.AddListener(() => {
+            activate_weapon(advancedBomb);
+        });
+
+        btn = masterSword_button.GetComponent<Button>();
+        btn.onClick.AddListener(() => {
+            activate_weapon(masterSword);
+        });
+ 
+        btn = masterGun_button.GetComponent<Button>();
+        btn.onClick.AddListener(() => {
+            activate_weapon(masterGun);
+        });
+
+        btn = masterBomb_button.GetComponent<Button>();
+        btn.onClick.AddListener(() => {
+            activate_weapon(masterBomb);
+        });
+
+
     }
 
     private void init_canvas(){
@@ -131,31 +190,31 @@ public class open_inventory_menu : MonoBehaviour
             inventoryMenu.SetActive(false);
         }
 
-        if(Input.GetKey(KeyCode.G)){   
-            toggle_gun_sword(true);
-        }
-
-        if(Input.GetKey(KeyCode.S)){   
-            toggle_gun_sword(false);
-        }
     }
 
-    private void toggle_gun_sword(bool toggle){
-
-        if(toggle){
-            basicSword.SetActive(false);
-            basicGun.SetActive(true);
-        }else{
-            basicSword.SetActive(true);
-            basicGun.SetActive(false);
-        }
-        
+    public void change_weapon(){
+        Debug.Log("change_weapon");
     }
 
+    private void disable_weapons(){
+        basicSword.SetActive(false);
+        basicGun.SetActive(false);
+        basicBomb.SetActive(false);
 
+        advancedSword.SetActive(false);
+        advancedGun.SetActive(false);
+        //advancedBomb.SetActive(false);
+
+        masterSword.SetActive(false);
+        masterGun.SetActive(false);
+        //masterBomb.SetActive(false);
+    }
+
+    private void activate_weapon(GameObject weapon){
+        disable_weapons();
+        weapon.SetActive(true);  
+    }
 }
-
-
 
 class Weapon : MonoBehaviour
 {

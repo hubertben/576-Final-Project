@@ -712,13 +712,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 199659773}
-        m_TargetAssemblyTypeName: close_inventory_menu, Assembly-CSharp
-        m_MethodName: closeMenu
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1418,6 +1418,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587129651}
   m_CullTransparentMesh: 1
+--- !u!1 &598871203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 84724622739645631, guid: 5a50f8727983d9043ab8a78932083c42, type: 3}
+  m_PrefabInstance: {fileID: 1979755089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &600157582
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,6 +2779,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964690250}
   m_CullTransparentMesh: 1
+--- !u!1 &983512152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 41319735028390957, guid: f6d3c889d70f14541b58931b2af4ace3, type: 3}
+  m_PrefabInstance: {fileID: 1321973653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &996746288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,6 +3137,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041277131}
   m_CullTransparentMesh: 1
+--- !u!1 &1048258995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4400779810525798243, guid: a243ad7aa75ad6c42803c811babf9bb2, type: 3}
+  m_PrefabInstance: {fileID: 1704587180}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1071544771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,6 +3507,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1165485137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2315764541405337310, guid: 8f780da2379a18d4c95593d16a9b0c54, type: 3}
+  m_PrefabInstance: {fileID: 1779520276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1218402885
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,19 +4120,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0891ba2377655c4e83060262f4cd499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicSword_button: {fileID: 1623619247}
+  basicGun_button: {fileID: 515097060}
+  basicBomb_button: {fileID: 1600503609}
+  advancedSword_button: {fileID: 1107986841}
+  advancedGun_button: {fileID: 1729783964}
+  advancedBomb_button: {fileID: 1041277133}
+  masterSword_button: {fileID: 716174582}
+  masterGun_button: {fileID: 733014677}
+  masterBomb_button: {fileID: 430275681}
   canvas: {fileID: 0}
   inventoryMenu: {fileID: 1508097950}
   interactionInstructions: {fileID: 765024067}
   inventory: {fileID: 587129651}
   inventorySpot: {fileID: 2112916925}
-  basicSword: {fileID: 0}
-  basicGun: {fileID: 0}
-  basicBomb: {fileID: 0}
-  advancedSword: {fileID: 0}
-  advancedGun: {fileID: 0}
+  basicSword: {fileID: 1853073351}
+  basicGun: {fileID: 460453444}
+  basicBomb: {fileID: 1730615409}
+  advancedSword: {fileID: 1048258995}
+  advancedGun: {fileID: 598871203}
   advancedBomb: {fileID: 0}
-  masterSword: {fileID: 0}
-  masterGun: {fileID: 0}
+  masterSword: {fileID: 983512152}
+  masterGun: {fileID: 1165485137}
   masterBomb: {fileID: 0}
 --- !u!95 &1455424951 stripped
 Animator:
@@ -5333,6 +5362,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729783962}
   m_CullTransparentMesh: 1
+--- !u!1 &1730615409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4160131058888820067, guid: ea412e09f56e4f84e8b286743a47c5fb, type: 3}
+  m_PrefabInstance: {fileID: 1386217659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1779520276
 PrefabInstance:
   m_ObjectHideFlags: 0
