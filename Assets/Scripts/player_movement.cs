@@ -15,6 +15,8 @@ public class player_movement : MonoBehaviour
     private float crouch_velocity;
     private float jump_velocity;
 
+    private float turning_speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,19 +29,12 @@ public class player_movement : MonoBehaviour
         backwards_velocity = walking_velocity / -1.5f;
         crouch_velocity = walking_velocity / 2.0f;
         jump_velocity = 3 * walking_velocity;
+        turning_speed = .2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("BasicBomb") != null)
-        {
-            animation_controller.SetBool("usingBomb", true);
-        }
-        else
-        {
-            animation_controller.SetBool("usingBomb", false);
-        }
         if(Input.GetMouseButtonDown(0))
         {
             animation_controller.SetTrigger("isAttacking");
@@ -69,14 +64,14 @@ public class player_movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) //turn left
         {
-            transform.Rotate(new Vector3(0.0f, -0.75f, 0.0f));
+            transform.Rotate(new Vector3(0.0f, -turning_speed, 0.0f));
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) //turn right
         {
-            transform.Rotate(new Vector3(0.0f, 0.75f, 0.0f));
+            transform.Rotate(new Vector3(0.0f, turning_speed, 0.0f));
         }
 
-        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow)) //if no forward/backward motion at all, or in a menu
+        if(animation_controller.GetCurrentAnimatorStateInfo(0).IsName("Idle01") || animation_controller.GetCurrentAnimatorStateInfo(0).IsName("Idle03")) //if no forward/backward motion at all, or in a menu
         {
             velocity = 0;
         }

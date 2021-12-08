@@ -11,13 +11,8 @@ public class camera_manager : MonoBehaviour
     public GameObject FPSCam;
 
     //weapons
-    public GameObject BasicSword;
-    public GameObject AdvancedSword;
-    public GameObject MasterSword;
-
-    public GameObject BasicGun;
-    public GameObject AdvancedGun;
-    public GameObject MasterGun;
+    public GameObject firstSword;
+    public GameObject firstGun;
     void Start()
     {
     }
@@ -40,9 +35,9 @@ public class camera_manager : MonoBehaviour
 
     int getPlayerCameraMode()
     {
-        if (BasicSword.activeInHierarchy) //expand if-statement to include other tiers of same weapon
+        if (firstSword.activeInHierarchy) //expand if-statement to include other tiers of same weapon
             return 0;
-        else if (BasicGun.activeInHierarchy || AdvancedGun.activeInHierarchy || MasterGun.activeInHierarchy)
+        else if (firstGun.activeInHierarchy)
             return 1;
         else //expand this to include different types of weapons
             return 2;
