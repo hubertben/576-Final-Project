@@ -1,6 +1,12 @@
 .DS_Store
 *.swp
+
+## Visual Studio##
 *.csproj
+.vs/
+.vsconfig
+obj/
+*.sln
 
 Logs/
 Library/
