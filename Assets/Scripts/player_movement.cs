@@ -73,6 +73,27 @@ public class player_movement : MonoBehaviour
             animation_controller.SetBool("isRunning", false);
         }
 
+        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            animation_controller.SetBool("isWalkingBackward", true);
+
+            if (Input.GetKey(KeyCode.LeftShift)) //running
+            {
+                animation_controller.SetBool("isRunningBackward", true);
+                velocity = -0.5f * walking_velocity;
+            }
+            else
+            {
+                animation_controller.SetBool("isRunningBackward", false);
+                velocity = -0.3f * walking_velocity;
+            }
+        }
+        else
+        {
+            animation_controller.SetBool("isWalkingBackward", false);
+            animation_controller.SetBool("isRunningBackward", false);
+        }
+
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) //turn left
         {
             transform.Rotate(new Vector3(0.0f, -turning_speed, 0.0f));
@@ -82,7 +103,7 @@ public class player_movement : MonoBehaviour
             transform.Rotate(new Vector3(0.0f, turning_speed, 0.0f));
         }
 
-        if(!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.W)) //if no forward/backward motion at all, or in a menu
+        if(!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.DownArrow))
         {
             velocity = 0;
         }

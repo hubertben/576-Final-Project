@@ -16,7 +16,7 @@ public class projectile_motion : MonoBehaviour
 
     void Update()
     {
-        transform.position += transform.forward * Time.deltaTime * 15;
+        transform.position += gameObject.name.Contains("Master") ? transform.up * Time.deltaTime * 10 : transform.forward * Time.deltaTime * 15;
 
         // if starttime hits 3 seconds, destory the object
         if (Time.time - startTime > 20)
