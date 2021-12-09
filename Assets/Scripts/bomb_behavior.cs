@@ -63,7 +63,23 @@ public class bomb_behavior : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
+        //Damage the other object in some way
         Instantiate(smokeCloud, transform.position, transform.rotation);
+
+        //MasterBomb special attack
+        if(gameObject.name.Contains("Master") && !gameObject.name.Contains("Split"))
+        {
+            //frontmost vertex of triangle
+            GameObject clone = Instantiate(gameObject, gameObject.transform.position + new Vector3(1f, 5f, 1f), gameObject.transform.rotation);
+            clone.name += "Split";
+
+            GameObject clone1 = Instantiate(gameObject, gameObject.transform.position + new Vector3(-1f, 5f, -1f), gameObject.transform.rotation);
+            clone1.name += "Split";
+
+            GameObject clone2 = Instantiate(gameObject, transform.position + new Vector3(0, 8f, 0), transform.rotation);
+            clone2.name += "Split";
+        }
+
         Destroy(gameObject);
     }
 }

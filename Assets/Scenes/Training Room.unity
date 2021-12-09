@@ -3780,7 +3780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSpot: {fileID: 84780200}
   smokeCloud: {fileID: 7147543579196524969, guid: 59067519a9a8d474caa6bee1406afb7f, type: 3}
-  bomb_timer_threshold: 0
+  bomb_timer_threshold: 1
   force_strength: 500
 --- !u!54 &1277117609
 Rigidbody:
