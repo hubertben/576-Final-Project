@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class open_inventory_menu : MonoBehaviour
 {
+
+    public int[] unlocks = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     public Button basicSword_button;
     public Button basicGun_button;
     public Button basicBomb_button;
@@ -18,7 +21,7 @@ public class open_inventory_menu : MonoBehaviour
     private int temp_index = 0;
 
     public Canvas canvas;
-    public GameObject inventoryMenu = GameObject.Find("InventoryMenu");
+    public GameObject inventoryMenu;
     public GameObject interactionInstructions;
     public GameObject inventory;
     public GameObject inventorySpot;
@@ -44,20 +47,19 @@ public class open_inventory_menu : MonoBehaviour
     public GameObject masterGun;
     public GameObject masterBomb;
 
-
+    public bool gLOCK = false;
 
     private void Start()
-    {
-        
-        animation_controller = GetComponent<Animator>();
-        init_canvas();
-        init_weapons();
-        init_buttons();
+    {   
+        if(!gLOCK){
+            inventoryMenu = GameObject.Find("InventoryMenu");
+            animation_controller = GetComponent<Animator>();
+            init_canvas();
+            init_weapons();
+            init_buttons();
 
-        unlock_item(0);
-        unlock_item(8);
-
-        unlock_item(4);
+        }
+       
     }
 
     private void init_buttons(){
@@ -114,9 +116,10 @@ public class open_inventory_menu : MonoBehaviour
         int[] name_indicies = {5, 10, 15, 20, 25, 30, 35, 40, 45};
         int[] damage_indicies = {6, 11, 16, 21, 26, 31, 36, 41, 46};
         int[] level_indicies = {7, 12, 17, 22, 27, 32, 37, 42, 47};
+        int[] unlock_indicies = {8, 13, 18, 23, 28, 33, 38, 43, 48};
 
         for(int i = 0; i < 9; i++){
-            inventoryMenu.GetComponentsInChildren<Transform>()[name_indicies[i]].GetComponent<Text>().text = "???";
+            inventoryMenu.GetComponentsInChildren<Transform>()[name_indicies[i]].GetComponent<Text>().text = "Locked";
             inventoryMenu.GetComponentsInChildren<Transform>()[damage_indicies[i]].GetComponent<Text>().text = "???";
             inventoryMenu.GetComponentsInChildren<Transform>()[level_indicies[i]].GetComponent<Text>().text = "???";
         }
@@ -141,8 +144,20 @@ public class open_inventory_menu : MonoBehaviour
         
     }
 
-    private void unlock_item(int index){
 
+    public void unlock_item(int index){
+
+        if(!gLOCK){
+            inventoryMenu = GameObject.Find("InventoryMenu");
+            animation_controller = GetComponent<Animator>();
+            init_canvas();
+            init_weapons();
+            init_buttons();
+            gLOCK = true;
+            Debug.Log("gLOCK = true");
+        }
+
+        Debug.Log("unlocking item: " + index);
         Weapon item = all_items_objects[index];
 
         item.locked = false;
@@ -152,9 +167,10 @@ public class open_inventory_menu : MonoBehaviour
         string item_name = item.get_full_weapon_type();
         int item_index = item.index;
 
-        inventoryMenu.GetComponentsInChildren<Transform>()[(item_index + 1) * 5].GetComponent<Text>().text = item_name;
-        inventoryMenu.GetComponentsInChildren<Transform>()[(item_index + 1) * 5 + 1].GetComponent<Text>().text = "Damage: " + item_damage.ToString();
-        inventoryMenu.GetComponentsInChildren<Transform>()[(item_index + 1) * 5 + 2].GetComponent<Text>().text = "Level: " + item_level.ToString();
+        inventoryMenu.GetComponentsInChildren<Transform>()[(index + 1) * 5].GetComponent<Text>().text = "Unlocked";
+        inventoryMenu.GetComponentsInChildren<Transform>()[(index + 1) * 5 + 1].GetComponent<Text>().text = "Damage: " + item_damage.ToString();
+        inventoryMenu.GetComponentsInChildren<Transform>()[(index + 1) * 5 + 2].GetComponent<Text>().text = "Level: " + item_level.ToString();
+        inventoryMenu.GetComponentsInChildren<Transform>()[(index + 1) * 5 + 3].GetComponent<Text>().text = item_name;
     }
 
     // Update is called once per frame
@@ -203,11 +219,11 @@ public class open_inventory_menu : MonoBehaviour
 
         advancedSword.SetActive(false);
         advancedGun.SetActive(false);
-        //advancedBomb.SetActive(false);
+        advancedBomb.SetActive(false);
 
         masterSword.SetActive(false);
         masterGun.SetActive(false);
-        //masterBomb.SetActive(false);
+        masterBomb.SetActive(false);
     }
 
     private void activate_weapon(GameObject weapon){
@@ -216,7 +232,7 @@ public class open_inventory_menu : MonoBehaviour
     }
 }
 
-class Weapon : MonoBehaviour
+class Weapon
 {
     public string[] weapon_types = {"Basic", "Advanced", "Master"};
     public int level; // 1-3
