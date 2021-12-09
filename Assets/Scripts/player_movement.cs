@@ -31,7 +31,7 @@ public class player_movement : MonoBehaviour
         backwards_velocity = walking_velocity / -1.5f;
         crouch_velocity = walking_velocity / 2.0f;
         jump_velocity = 3 * walking_velocity;
-        turning_speed = .2f;
+        turning_speed = 1f;
     }
 
     // Update is called once per frame
