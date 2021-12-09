@@ -6,6 +6,7 @@ public class boss_behavior : MonoBehaviour
 {
     public GameObject projectile;
     private GameObject player;
+    private Animator animcon;
     private float health;
     private float attack_timer;
     private float attack_timer_threshold;
@@ -14,9 +15,10 @@ public class boss_behavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attack_timer_threshold = 1.5f;
+        attack_timer_threshold = 3f;
         health = 1000;
         player = GameObject.Find("Player");
+        animcon = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,10 +29,13 @@ public class boss_behavior : MonoBehaviour
         attack_timer += Time.deltaTime;
         if (attack_timer < attack_timer_threshold)
         {
+            animcon.SetBool("walking", true);
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 2f * Time.deltaTime);
         }
         else
         {
+            animcon.SetBool("walking", false);
+
             Vector3 future_pos = player.transform.position;
             float delta_pos = Mathf.Infinity;
             Vector3 shooting_direction = dir_to_player;
