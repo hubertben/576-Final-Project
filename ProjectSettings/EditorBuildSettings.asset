@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Training Room.unity
+    guid: 501c6a73968ff7c419a7d681bbda670c
+  - enabled: 1
+    path: Assets/Scenes/BossRoom.unity
+    guid: d3d86a9e36a5246b597e9693384ffd0a
   m_configObjects: {}
