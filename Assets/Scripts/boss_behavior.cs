@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class boss_behavior : MonoBehaviour
 {
+    public GameObject projectile;
     private GameObject player;
     private float health;
     private float attack_timer;
@@ -13,6 +14,7 @@ public class boss_behavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        attack_timer_threshold = 1.5f;
         health = 1000;
         player = GameObject.Find("Player");
     }
@@ -46,6 +48,10 @@ public class boss_behavior : MonoBehaviour
 
             float angle_to_rotate_turret = Mathf.Rad2Deg * Mathf.Atan2(shooting_direction.x, shooting_direction.z);
             transform.eulerAngles = new Vector3(0.0f, angle_to_rotate_turret, 0.0f);
+
+            GameObject clone = Instantiate(projectile, transform.position, transform.rotation);
+            clone.name += "BOSS";
+            attack_timer -= attack_timer_threshold;
         }
     }
 }
