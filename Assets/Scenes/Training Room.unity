@@ -4371,10 +4371,10 @@ MonoBehaviour:
   basicBomb: {fileID: 1730615409}
   advancedSword: {fileID: 1048258995}
   advancedGun: {fileID: 598871203}
-  advancedBomb: {fileID: 0}
+  advancedBomb: {fileID: 1990342844}
   masterSword: {fileID: 983512152}
   masterGun: {fileID: 1165485137}
-  masterBomb: {fileID: 0}
+  masterBomb: {fileID: 1277117607}
 --- !u!95 &1455424951 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9105315542713420924, guid: e15ae7e93d7c6e3408bc1b2117e8cc1c, type: 3}
