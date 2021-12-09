@@ -144,6 +144,17 @@ public class open_inventory_menu : MonoBehaviour
         
     }
 
+    public List<Weapon> returnFalseItems(){
+        // returns a list of Weapons if the player has unlocked them
+        List<Weapon> unlocked_items = new List<Weapon>();
+        for(int i = 0; i < 9; i++){
+            if(!all_items_objects[i].locked){
+                unlocked_items.Add(all_items_objects[i]);
+            }
+        }
+        return unlocked_items;
+    }
+
 
     public void unlock_item(int index){
 
@@ -232,7 +243,7 @@ public class open_inventory_menu : MonoBehaviour
     }
 }
 
-class Weapon
+public class Weapon
 {
     public string[] weapon_types = {"Basic", "Advanced", "Master"};
     public int level; // 1-3
