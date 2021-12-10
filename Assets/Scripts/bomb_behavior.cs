@@ -69,7 +69,11 @@ public class bomb_behavior : MonoBehaviour
         
         if(collision.gameObject.name.Contains("Boss"))
         {
-                //decrement boss health
+            //decrement boss health
+            GameObject inventory = GameObject.Find("Player");
+            float current_damage = inventory.GetComponent<open_inventory_menu>().currentWeapon.damage;
+
+            GameObject.FindObjectOfType<boss_behavior>().health -= current_damage;
         }
 
         //MasterBomb special attack
