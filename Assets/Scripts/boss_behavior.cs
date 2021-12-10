@@ -7,7 +7,7 @@ public class boss_behavior : MonoBehaviour
     public GameObject projectile;
     private GameObject player;
     private Animator animcon;
-    private float health;
+    public float health;
     private float shoot_attack_timer;
     private float shoot_attack_timer_threshold;
 
@@ -73,7 +73,7 @@ public class boss_behavior : MonoBehaviour
                 float angle_to_rotate_turret = Mathf.Rad2Deg * Mathf.Atan2(shooting_direction.x, shooting_direction.z);
                 transform.eulerAngles = new Vector3(0.0f, angle_to_rotate_turret, 0.0f);
 
-                GameObject clone = Instantiate(projectile, transform.position + transform.forward * 3 + new Vector3(0, 1, 0), transform.rotation);
+                GameObject clone = Instantiate(projectile, transform.position, transform.rotation);
                 clone.name += "BOSS";
                 shoot_attack_timer -= shoot_attack_timer_threshold;
             }

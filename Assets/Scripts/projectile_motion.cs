@@ -31,10 +31,27 @@ public class projectile_motion : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided with: " + collision.gameObject.name);
-        if(collision.gameObject.name == "Boss" && !name.Contains("BOSS"))
+
+        if(collision.gameObject.name.Contains("Wall"))
         {
             Destroy(gameObject);
+        }
+
+        if(name.Contains("BOSS"))
+        {
+            if(collision.gameObject.name == "Player")
+            {
+                //decrement player health by dmg
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            if (collision.gameObject.name == "Boss")
+            {
+                //decrement boss health by dmg
+                Destroy(gameObject);
+            }
         }
     }
 }
