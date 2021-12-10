@@ -8,6 +8,7 @@ public class boss_behavior : MonoBehaviour
     private GameObject player;
     private Animator animcon;
     public float health;
+
     private float shoot_attack_timer;
     private float shoot_attack_timer_threshold;
 
@@ -20,7 +21,7 @@ public class boss_behavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shoot_attack_timer_threshold = 3f;
+        shoot_attack_timer_threshold = 2f;
         health = 1000;
         player = GameObject.Find("Player");
         animcon = gameObject.GetComponent<Animator>();
@@ -31,9 +32,13 @@ public class boss_behavior : MonoBehaviour
     {
         dir_to_player = player.transform.position - transform.position;
         dir_to_player.Normalize();
+        
         shoot_attack_timer += Time.deltaTime;
+        //if (shoot_attack_timer >= shoot_attack_timer_threshold) shoot_attack_timer = shoot_attack_timer_threshold;
+        
         pause_timer += Time.deltaTime;
 
+        //give player opportunity to hit boss
         if (pause_timer >= pause_timer_lower_threshold)
         {
             animcon.SetBool("pausing", true);
@@ -42,6 +47,7 @@ public class boss_behavior : MonoBehaviour
                 pause_timer = 0;
             }
         } 
+        //boss does its thing
         else
         {
             animcon.SetBool("pausing", false);

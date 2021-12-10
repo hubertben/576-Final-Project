@@ -17,14 +17,6 @@ public class sword_behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (animcon.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-        {
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        }
-        else
-        {
-            gameObject.GetComponent<CapsuleCollider>().enabled = true;
-        }
         
         transform.position = new Vector3(playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position.x, 
                                          playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position.y + 0.6f, 
