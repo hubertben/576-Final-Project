@@ -17,7 +17,9 @@ public class level : MonoBehaviour
     public int health_up_bound = 1;
 
     public Slider player_health_bar;
-    public float player_health = 1.0f;
+    public int player_health = 100;
+    public Slider boss_health_bar;
+    public int boss_health = 10000;
 
     // Use this for initialization
     void Start()
@@ -86,15 +88,21 @@ public class level : MonoBehaviour
         }
     }
 
-    public void SetHealth(float health)
+    public void SetPlayerHealth(int health)
     {
         player_health_bar.value = health;
+    }
+
+    public void SetBossHealth(int health)
+    {
+        boss_health_bar.value = health;
     }
 
     void Update()
     {
 
-        SetHealth(player_health);
+        SetPlayerHealth(player_health);
+        SetBossHealth(boss_health);
 
     }
 }
