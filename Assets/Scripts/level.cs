@@ -14,7 +14,10 @@ public class level : MonoBehaviour
     public GameObject palm_tree_prefab;
     public GameObject poplar_tree_prefab;
     public GameObject platform_prefab;
+    public int health_up_bound = 1;
 
+    public Slider player_health_bar;
+    public float player_health = 1.0f;
 
     // Use this for initialization
     void Start()
@@ -35,7 +38,7 @@ public class level : MonoBehaviour
             for(int j = 10; j <= length-10; j+=5)
             {
                 int p = Random.Range(0, 25);
-                if(p > 8)
+                if(p > 15)
                 {
                     int tree_num = Random.Range(0, 5);
                     float tree_x = (float)i - 40.0f;
@@ -67,7 +70,7 @@ public class level : MonoBehaviour
                     temp.name = "TREE";
                     temp.transform.position = new Vector3(tree_x, 0.0f, tree_z); 
                 }
-                else if(p < 1)
+                else if(p < health_up_bound)
                 {
                     float platform_x = (float)i - 35.0f;
                     float platform_z = (float)j - 35.0f;
@@ -83,8 +86,16 @@ public class level : MonoBehaviour
         }
     }
 
+    public void SetHealth(float health)
+    {
+        player_health_bar.value = health;
+    }
+
     void Update()
     {
+
+        SetHealth(player_health);
+
     }
 }
 
