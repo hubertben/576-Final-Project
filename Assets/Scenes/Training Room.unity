@@ -4775,6 +4775,7 @@ MonoBehaviour:
   movement_direction: {x: 0, y: 0, z: 0}
   velocity: 0
   walking_velocity: 5
+  health: 100
 --- !u!143 &1455424949
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4805,6 +4806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0891ba2377655c4e83060262f4cd499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  number_of_deaths: 0
   unlocks: 
   basicSword_button: {fileID: 1623619247}
   basicGun_button: {fileID: 515097060}

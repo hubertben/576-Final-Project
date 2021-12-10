@@ -9564,6 +9564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 928632129613956425, guid: eeb0f22f293108943826e94f71640361, type: 3}
+  health: 10000
 --- !u!136 &206898191893500822
 CapsuleCollider:
   m_ObjectHideFlags: 0
