@@ -16,9 +16,15 @@ public class fileIO : MonoBehaviour
 
         string[] lines = System.IO.File.ReadAllLines(path);
         
-        for(int i = 0; i < lines.Length; i++){
+        for(int i = 0; i < 9; i++){
             if (lines[i] == "true"){
                 inventory.GetComponent<open_inventory_menu>().unlock_item(i);
+            }
+        }
+
+        for(int i = 0; i < 4; i++){
+            if (lines[i] == "true"){
+                inventory.GetComponent<open_inventory_menu>().unlock_armor(9 + i);
             }
         }
 
