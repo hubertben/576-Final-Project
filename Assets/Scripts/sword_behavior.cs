@@ -17,6 +17,7 @@ public class sword_behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         transform.position = new Vector3(playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position.x, 
                                          playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position.y + 0.6f, 
                                          playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position.z);

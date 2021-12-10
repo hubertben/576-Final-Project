@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player_movement : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class player_movement : MonoBehaviour
     private float crouch_velocity;
     private float jump_velocity;
 
+    public float health;
+
     private float turning_speed;
 
     // Start is called before the first frame update
@@ -22,6 +25,7 @@ public class player_movement : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
+        health = 100;
         animation_controller = GetComponent<Animator>();
         character_controller = GetComponent<CharacterController>();
         movement_direction = new Vector3(0.0f, 0.0f, 0.0f);
@@ -37,6 +41,18 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        if (Input.GetKeyDown(KeyCode.P) && Time.timeScale > 0)
+        {
+            Debug.Log("pausing");
+            Time.timeScale = 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("unpausing");
+            Time.timeScale = 1;
+        }
 
         //if we're using a bomb, use throwing animations
         if(GameObject.FindWithTag("bomb"))
