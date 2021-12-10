@@ -193,9 +193,7 @@ public class open_inventory_menu : MonoBehaviour
     }
 
 
-
-    public void unlock_item(int index){
-
+    public void unlock(string s){
         if(!gLOCK){
             inventoryMenu = GameObject.Find("InventoryMenu");
             animation_controller = GetComponent<Animator>();
@@ -205,37 +203,117 @@ public class open_inventory_menu : MonoBehaviour
             gLOCK = true;
         }
 
-        Weapon item = all_items_objects[index];
-        Debug.Log("unlocking item: " + item.get_full_weapon_type() + " at index: " + index);
-        item.locked = false;
-
-        int item_level = item.level;
-        int item_damage = item.damage;
-        string item_name = item.get_full_weapon_type();
-        int item_index = item.index;
-
-        Debug.Log((item_index + 1) * 5);
-        Debug.Log((item_index + 1) * 5 + 1);
-        Debug.Log((item_index + 1) * 5 + 2);
-        Debug.Log((item_index + 1) * 5 + 3);
-
-        inventoryMenu.GetComponentsInChildren<Transform>()[(item_index + 1) * 5].GetComponent<Text>().text = "Unlocked";
-        inventoryMenu.GetComponentsInChildren<Transform>()[(item_index + 1) * 5 + 1].GetComponent<Text>().text = "Damage: " + item_damage.ToString();
-        inventoryMenu.GetComponentsInChildren<Transform>()[(item_index + 1) * 5 + 2].GetComponent<Text>().text = "Level: " + item_level.ToString();
-        inventoryMenu.GetComponentsInChildren<Transform>()[(item_index + 1) * 5 + 3].GetComponent<Text>().text = item_name;
-    }
-
-    public void unlock_item_by_string(string s){
-
-        Debug.Log("unlocking item: " + s);
-
         for(int i = 0; i < all_items_objects.Length; i++){
-            if(all_items_objects[i].get_full_weapon_type() == s){
-                unlock_item(i);
-                break;
-            }
+                
+                switch (s){
+                    case "Basic Sword":
+                        all_items_objects[i].locked = false;
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[4].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
+                        
+                        inventoryMenu.GetComponentsInChildren<Transform>()[5].GetComponent<Text>().text = "Basic Sword";
+                        inventoryMenu.GetComponentsInChildren<Transform>()[6].GetComponent<Text>().text = "Damage: " + all_items_objects[i].damage;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[7].GetComponent<Text>().text = "Level: " + all_items_objects[i].level;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[8].GetComponent<Text>().text = "Unlocked";
+                        break;
+                    
+                    case "Basic Gun":
+                        all_items_objects[i].locked = false;
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[19].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[20].GetComponent<Text>().text = "Basic Gun";
+                        inventoryMenu.GetComponentsInChildren<Transform>()[21].GetComponent<Text>().text = "Damage: " + all_items_objects[i].damage;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[22].GetComponent<Text>().text = "Level: " + all_items_objects[i].level;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[23].GetComponent<Text>().text = "Unlocked";
+                        break;
+
+                    case "Basic Bomb":
+                        all_items_objects[i].locked = false;
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[34].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[35].GetComponent<Text>().text = "Basic Bomb";
+                        inventoryMenu.GetComponentsInChildren<Transform>()[36].GetComponent<Text>().text = "Damage: " + all_items_objects[i].damage;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[37].GetComponent<Text>().text = "Level: " + all_items_objects[i].level;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[38].GetComponent<Text>().text = "Unlocked";
+                        break;
+
+                    case "Advanced Sword":
+                        all_items_objects[i].locked = false;
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[9].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[10].GetComponent<Text>().text = "AdvancedSword";
+                        inventoryMenu.GetComponentsInChildren<Transform>()[11].GetComponent<Text>().text = "Damage: " + all_items_objects[i].damage;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[12].GetComponent<Text>().text = "Level: " + all_items_objects[i].level;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[13].GetComponent<Text>().text = "Unlocked";
+                        break;
+                    
+                    case "Advanced Gun":
+                        all_items_objects[i].locked = false;
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[24].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[25].GetComponent<Text>().text = "AdvancedGun";
+                        inventoryMenu.GetComponentsInChildren<Transform>()[26].GetComponent<Text>().text = "Damage: " + all_items_objects[i].damage;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[27].GetComponent<Text>().text = "Level: " + all_items_objects[i].level;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[28].GetComponent<Text>().text = "Unlocked";
+                        break;
+
+                    case "Advanced Bomb":
+                        all_items_objects[i].locked = false;
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[39].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[40].GetComponent<Text>().text = "AdvancedBomb";
+                        inventoryMenu.GetComponentsInChildren<Transform>()[41].GetComponent<Text>().text = "Damage: " + all_items_objects[i].damage;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[42].GetComponent<Text>().text = "Level: " + all_items_objects[i].level;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[43].GetComponent<Text>().text = "Unlocked";
+                        break;
+
+                    case "Master Sword":
+                        all_items_objects[i].locked = false;
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[14].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[15].GetComponent<Text>().text = "MasterSword";
+                        inventoryMenu.GetComponentsInChildren<Transform>()[16].GetComponent<Text>().text = "Damage: " + all_items_objects[i].damage;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[17].GetComponent<Text>().text = "Level: " + all_items_objects[i].level;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[18].GetComponent<Text>().text = "Unlocked";
+                        break;
+
+                    case "Master Gun":
+                        all_items_objects[i].locked = false;
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[29].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[30].GetComponent<Text>().text = "MasterGun";
+                        inventoryMenu.GetComponentsInChildren<Transform>()[31].GetComponent<Text>().text = "Damage: " + all_items_objects[i].damage;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[32].GetComponent<Text>().text = "Level: " + all_items_objects[i].level;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[33].GetComponent<Text>().text = "Unlocked";
+                        break;
+
+                    case "Master Bomb":   
+                        all_items_objects[i].locked = false;
+
+                        inventoryMenu.GetComponentsInChildren<Transform>()[44].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
+                        
+                        inventoryMenu.GetComponentsInChildren<Transform>()[45].GetComponent<Text>().text = "MasterBomb";
+                        inventoryMenu.GetComponentsInChildren<Transform>()[46].GetComponent<Text>().text = "Damage: " + all_items_objects[i].damage;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[47].GetComponent<Text>().text = "Level: " + all_items_objects[i].level;
+                        inventoryMenu.GetComponentsInChildren<Transform>()[48].GetComponent<Text>().text = "Unlocked";
+                        break;
+                }
+
+
+
+
+                
+            //}
         }
     }
+
 
     public void writeToFile(){
         string path = "Assets/unlocks.txt";
@@ -301,7 +379,7 @@ public class open_inventory_menu : MonoBehaviour
             inventoryMenu.SetActive(false);
         }
 
-        writeToFile();
+        //writeToFile();
 
     }
 
@@ -326,16 +404,19 @@ public class open_inventory_menu : MonoBehaviour
     private void activate_weapon(GameObject weapon){
 
         if(weapon.name == "BasicSword" && !all_items_objects[0].locked){
+            Debug.Log("BasicSword");
             disable_weapons();
             basicSword.SetActive(true);
             currentWeapon = all_items_objects[0];
         }
         else if(weapon.name == "BasicGun" && !all_items_objects[3].locked){
+            Debug.Log("BasicGun");
             disable_weapons();
             basicGun.SetActive(true);
             currentWeapon = all_items_objects[3];
         }
         else if(weapon.name == "BasicBomb" && !all_items_objects[6].locked){
+            Debug.Log("BasicBomb");
             disable_weapons();
             basicBomb.SetActive(true);
             currentWeapon = all_items_objects[6];
@@ -370,6 +451,9 @@ public class open_inventory_menu : MonoBehaviour
             masterBomb.SetActive(true);
             currentWeapon = all_items_objects[8];
         }
+
+        // current weapon
+        Debug.Log("Current: " + currentWeapon.get_full_weapon_type());
     }
 
 
@@ -387,6 +471,7 @@ public class Weapon
     public string type; // bomb, sword, gun
     public bool locked = true;
     public int index;
+    public string name;
 
     public Weapon(int level, int damage, int ammo, int maxAmmo, string type, int index)
     {
@@ -396,6 +481,8 @@ public class Weapon
         this.maxAmmo = maxAmmo;
         this.type = type;
         this.index = index;
+
+        name = weapon_types[level - 1] + type;
     }
 
 

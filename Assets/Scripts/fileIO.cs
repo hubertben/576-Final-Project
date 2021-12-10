@@ -6,7 +6,7 @@ using System;
 
 public class fileIO : MonoBehaviour
 {
-    public int[] unlocks;
+    public string[] unlocks;
     public GameObject inventory;
     public string path = "Assets/unlocks.txt";
     // Start is called before the first frame update
@@ -15,18 +15,21 @@ public class fileIO : MonoBehaviour
         inventory = GameObject.Find("Player");
 
         string[] lines = System.IO.File.ReadAllLines(path);
+        string[][] d = new string[lines.Length][];
+        // clean lines by splitting at the colon
+        for (int i = 0; i < lines.Length; i++)
+        {   
+            //Debug.Log(lines[i].Split(':')[0] + " " + lines[i].Split(':')[1]);
+            d[i] = lines[i].Split(':');
+        }
         
         for(int i = 0; i < 9; i++){
-            if (lines[i] == "true"){
-                inventory.GetComponent<open_inventory_menu>().unlock_item(i);
+            if (d[i][1] == "true"){
+                inventory.GetComponent<open_inventory_menu>().unlock(d[i][0]);
             }
         }
 
-        for(int i = 0; i < 4; i++){
-            if (lines[i] == "true"){
-                inventory.GetComponent<open_inventory_menu>().unlock_armor(9 + i);
-            }
-        }
+        
 
 
     }

@@ -65,14 +65,14 @@ public class onDeath : MonoBehaviour
     private void init_buttons(){
         Button btn = button1.GetComponent<Button>();
 	    btn.onClick.AddListener(() => {
-            inventory.GetComponent<open_inventory_menu>().unlock_item_by_string(button1.GetComponentInChildren<Text>().text);
+            inventory.GetComponent<open_inventory_menu>().unlock(button1.GetComponentInChildren<Text>().text);
             //inventory.GetComponent<open_inventory_menu>().unlock_item(2);
             chooseMenu.SetActive(false);
         });
 
         btn = button2.GetComponent<Button>();
         btn.onClick.AddListener(() => {
-            inventory.GetComponent<open_inventory_menu>().unlock_item_by_string(button2.GetComponentInChildren<Text>().text);
+            inventory.GetComponent<open_inventory_menu>().unlock(button2.GetComponentInChildren<Text>().text);
             //inventory.GetComponent<open_inventory_menu>().unlock_item(3);
             chooseMenu.SetActive(false);
         });
