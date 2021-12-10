@@ -207,7 +207,7 @@ public class open_inventory_menu : MonoBehaviour
                 
                 switch (s){
                     case "Basic Sword":
-                        all_items_objects[i].locked = false;
+                        all_items_objects[0].locked = false;
 
                         inventoryMenu.GetComponentsInChildren<Transform>()[4].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
                         
@@ -218,7 +218,7 @@ public class open_inventory_menu : MonoBehaviour
                         break;
                     
                     case "Basic Gun":
-                        all_items_objects[i].locked = false;
+                        all_items_objects[3].locked = false;
 
                         inventoryMenu.GetComponentsInChildren<Transform>()[19].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
 
@@ -229,7 +229,7 @@ public class open_inventory_menu : MonoBehaviour
                         break;
 
                     case "Basic Bomb":
-                        all_items_objects[i].locked = false;
+                        all_items_objects[6].locked = false;
 
                         inventoryMenu.GetComponentsInChildren<Transform>()[34].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
 
@@ -240,7 +240,7 @@ public class open_inventory_menu : MonoBehaviour
                         break;
 
                     case "Advanced Sword":
-                        all_items_objects[i].locked = false;
+                        all_items_objects[1].locked = false;
 
                         inventoryMenu.GetComponentsInChildren<Transform>()[9].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
 
@@ -251,7 +251,7 @@ public class open_inventory_menu : MonoBehaviour
                         break;
                     
                     case "Advanced Gun":
-                        all_items_objects[i].locked = false;
+                        all_items_objects[4].locked = false;
 
                         inventoryMenu.GetComponentsInChildren<Transform>()[24].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
 
@@ -262,7 +262,7 @@ public class open_inventory_menu : MonoBehaviour
                         break;
 
                     case "Advanced Bomb":
-                        all_items_objects[i].locked = false;
+                        all_items_objects[7].locked = false;
 
                         inventoryMenu.GetComponentsInChildren<Transform>()[39].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
 
@@ -273,7 +273,7 @@ public class open_inventory_menu : MonoBehaviour
                         break;
 
                     case "Master Sword":
-                        all_items_objects[i].locked = false;
+                        all_items_objects[2].locked = false;
 
                         inventoryMenu.GetComponentsInChildren<Transform>()[14].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
 
@@ -284,7 +284,7 @@ public class open_inventory_menu : MonoBehaviour
                         break;
 
                     case "Master Gun":
-                        all_items_objects[i].locked = false;
+                        all_items_objects[5].locked = false;
 
                         inventoryMenu.GetComponentsInChildren<Transform>()[29].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
 
@@ -295,7 +295,7 @@ public class open_inventory_menu : MonoBehaviour
                         break;
 
                     case "Master Bomb":   
-                        all_items_objects[i].locked = false;
+                        all_items_objects[8].locked = false;
 
                         inventoryMenu.GetComponentsInChildren<Transform>()[44].GetComponent<Image>().color = new Color32(150, 255, 150, 255);
                         
@@ -325,10 +325,10 @@ public class open_inventory_menu : MonoBehaviour
         string[] lines = new string[9];
         for(int i = 0; i < all_items_objects.Length; i++){
             if(all_items_objects[i].locked == true){
-                lines[i] = "false";
+                lines[i] = all_items_objects[i].get_full_weapon_type() + ":false";
             }
             else{
-                lines[i] = "true";
+                lines[i] = all_items_objects[i].get_full_weapon_type() + ":true";
             }
         }
 
@@ -379,7 +379,7 @@ public class open_inventory_menu : MonoBehaviour
             inventoryMenu.SetActive(false);
         }
 
-        //writeToFile();
+        writeToFile();
 
     }
 
@@ -403,20 +403,30 @@ public class open_inventory_menu : MonoBehaviour
 
     private void activate_weapon(GameObject weapon){
 
+        Debug.Log(weapon.name == "BasicSword" && !all_items_objects[0].locked);
+        Debug.Log(weapon.name == "BasicGun" && !all_items_objects[3].locked);
+        Debug.Log(weapon.name == "BasicBomb" && !all_items_objects[6].locked);
+
+        Debug.Log(weapon.name == "AdvancedSword" && !all_items_objects[1].locked);
+        Debug.Log(weapon.name == "AdvancedGun" && !all_items_objects[4].locked);
+        Debug.Log(weapon.name == "AdvancedBomb" && !all_items_objects[7].locked);
+
+        Debug.Log(weapon.name == "MasterSword" && !all_items_objects[2].locked);
+        Debug.Log(weapon.name == "MasterGun" && !all_items_objects[5].locked);
+        Debug.Log(weapon.name == "MasterBomb" && !all_items_objects[8].locked);
+
+
         if(weapon.name == "BasicSword" && !all_items_objects[0].locked){
-            Debug.Log("BasicSword");
             disable_weapons();
             basicSword.SetActive(true);
             currentWeapon = all_items_objects[0];
         }
         else if(weapon.name == "BasicGun" && !all_items_objects[3].locked){
-            Debug.Log("BasicGun");
             disable_weapons();
             basicGun.SetActive(true);
             currentWeapon = all_items_objects[3];
         }
         else if(weapon.name == "BasicBomb" && !all_items_objects[6].locked){
-            Debug.Log("BasicBomb");
             disable_weapons();
             basicBomb.SetActive(true);
             currentWeapon = all_items_objects[6];
@@ -453,7 +463,7 @@ public class open_inventory_menu : MonoBehaviour
         }
 
         // current weapon
-        Debug.Log("Current: " + currentWeapon.get_full_weapon_type());
+        
     }
 
 

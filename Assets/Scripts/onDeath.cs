@@ -44,7 +44,7 @@ public class onDeath : MonoBehaviour
 
         }else if(weapons.Count == 1){
             // if there is only one weapon in the list, set the text of the buttons to the name of the weapon
-            button1.GetComponentInChildren<Text>().text = "Damage: " + weapons[0].get_full_weapon_type();
+            button1.GetComponentInChildren<Text>().text = weapons[0].get_full_weapon_type();
             button2.GetComponentInChildren<Text>().text = "Level Up to Unlock More";
 
             // set the text of the texts to the damage of the weapon

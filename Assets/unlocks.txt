@@ -1,9 +1,9 @@
 Basic Sword:true
-Basic Gun:false
-Basic Bomb:false
 Advanced Sword:false
-Advanced Gun:false
-Advanced Bomb:false
 Master Sword:false
+Basic Gun:false
+Advanced Gun:false
 Master Gun:false
+Basic Bomb:false
+Advanced Bomb:false
 Master Bomb:false
