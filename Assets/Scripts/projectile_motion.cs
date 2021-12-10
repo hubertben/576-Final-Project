@@ -53,7 +53,6 @@ public class projectile_motion : MonoBehaviour
             {
                 GameObject inventory = GameObject.Find("Player");
                 float current_damage = inventory.GetComponent<open_inventory_menu>().currentWeapon.damage;
-                Debug.Log(current_damage);
 
                 //decrement boss health by dmg
                 GameObject.FindObjectOfType<boss_behavior>().health -= current_damage;
