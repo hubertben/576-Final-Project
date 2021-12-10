@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player_movement : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
 
         if (Input.GetKeyDown(KeyCode.P) && Time.timeScale > 0)
         {

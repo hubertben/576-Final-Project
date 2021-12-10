@@ -69,8 +69,9 @@ public class bomb_behavior : MonoBehaviour
         
         if(collision.gameObject.name.Contains("Boss"))
         {
-            //decrement boss health
+                //decrement boss health
         }
+
         //MasterBomb special attack
         if(gameObject.name.Contains("Master") && !gameObject.name.Contains("Split"))
         {
