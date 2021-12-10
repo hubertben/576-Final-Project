@@ -7,4 +7,4 @@ Master Gun:false
 Basic Bomb:true
 Advanced Bomb:false
 Master Bomb:false
-Number_Of_Lives:0
+Number_Of_Lives:10
