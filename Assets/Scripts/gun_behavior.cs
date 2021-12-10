@@ -34,14 +34,12 @@ public class gun_behavior : MonoBehaviour
         }
         else if(name.Contains("Advanced"))
         {
-            Vector3 proj1 = new Vector3(transform.position.x, transform.position.y + Random.Range(0.2f, 0.9f), transform.position.z);
-            Vector3 proj2 = new Vector3(transform.position.x + Random.Range(0.5f, 0.9f), transform.position.y + Random.Range(0.2f, 0.9f), transform.position.z + Random.Range(0.5f, 0.9f));
-            Vector3 proj3 = new Vector3(transform.position.x - Random.Range(0.5f, 0.9f), transform.position.y + Random.Range(0.2f, 0.9f), transform.position.z - Random.Range(0.5f, 0.9f));
-            Vector3 proj4 = new Vector3(transform.position.x + Random.Range(0.2f, 0.5f), transform.position.y + Random.Range(0.2f, 0.9f), transform.position.z - Random.Range(0.2f, 0.5f));
+            Vector3 proj1 = new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z);
+            Vector3 proj2 = new Vector3(transform.position.x - 2, transform.position.y + 0.5f, transform.position.z + 1f);
+            Vector3 proj3 = new Vector3(transform.position.x + 2, transform.position.y + 0.3f, transform.position.z - 1f);
             Instantiate(projectile, proj1, transform.rotation);
             Instantiate(projectile, proj2, transform.rotation);
             Instantiate(projectile, proj3, transform.rotation);
-            Instantiate(projectile, proj4, transform.rotation);
         }
         else //master
         {

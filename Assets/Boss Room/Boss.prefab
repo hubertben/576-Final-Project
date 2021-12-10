@@ -9502,6 +9502,7 @@ GameObject:
   - component: {fileID: 5975266776719540264}
   - component: {fileID: 291684685840521810}
   - component: {fileID: 6556642071284052975}
+  - component: {fileID: 206898191893500822}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -9563,6 +9564,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 448040928260143982, guid: 7963969c3d28b164e980f7cdcec9a52d, type: 3}
+--- !u!136 &206898191893500822
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6460336515942685330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &6480345365631607387
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,14 +8,19 @@ public class boss_behavior : MonoBehaviour
     private GameObject player;
     private Animator animcon;
     private float health;
-    private float attack_timer;
-    private float attack_timer_threshold;
+    private float shoot_attack_timer;
+    private float shoot_attack_timer_threshold;
+
+    private float pause_timer;
+    private float pause_timer_lower_threshold = 10; //when we hit this mark, start pausing
+    private float pause_timer_upper_threshold = 15; //when we hit this mark, stop pausing
+
     private Vector3 dir_to_player;
 
     // Start is called before the first frame update
     void Start()
     {
-        attack_timer_threshold = 3f;
+        shoot_attack_timer_threshold = 3f;
         health = 1000;
         player = GameObject.Find("Player");
         animcon = gameObject.GetComponent<Animator>();
@@ -26,37 +31,52 @@ public class boss_behavior : MonoBehaviour
     {
         dir_to_player = player.transform.position - transform.position;
         dir_to_player.Normalize();
-        attack_timer += Time.deltaTime;
-        if (attack_timer < attack_timer_threshold)
+        shoot_attack_timer += Time.deltaTime;
+        pause_timer += Time.deltaTime;
+
+        if (pause_timer >= pause_timer_lower_threshold)
         {
-            animcon.SetBool("walking", true);
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 2f * Time.deltaTime);
-        }
+            animcon.SetBool("pausing", true);
+            if (pause_timer >= pause_timer_upper_threshold)
+            {
+                pause_timer = 0;
+            }
+        } 
         else
         {
-            animcon.SetBool("walking", false);
+            animcon.SetBool("pausing", false);
 
-            Vector3 future_pos = player.transform.position;
-            float delta_pos = Mathf.Infinity;
-            Vector3 shooting_direction = dir_to_player;
-            for(int i = 0; i < 1000; i++)
+            if (shoot_attack_timer < shoot_attack_timer_threshold)
             {
-                float distance = Vector3.Magnitude(future_pos - transform.position);
-                float look_ahead_time = distance / 10;
-                Vector3 previous_future_pos = future_pos;
-                future_pos = player.transform.position + look_ahead_time * player.GetComponent<player_movement>().velocity * player.GetComponent<player_movement>().movement_direction;
-                delta_pos = Vector3.Magnitude(future_pos - previous_future_pos);
+                animcon.SetBool("walking", true);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 2f * Time.deltaTime);
             }
-            shooting_direction = future_pos - transform.position;
-            shooting_direction.y = 0;
-            shooting_direction.Normalize();
+            else
+            {
+                animcon.SetBool("walking", false);
 
-            float angle_to_rotate_turret = Mathf.Rad2Deg * Mathf.Atan2(shooting_direction.x, shooting_direction.z);
-            transform.eulerAngles = new Vector3(0.0f, angle_to_rotate_turret, 0.0f);
+                Vector3 future_pos = player.transform.position;
+                float delta_pos = Mathf.Infinity;
+                Vector3 shooting_direction = dir_to_player;
+                for (int i = 0; i < 1000; i++)
+                {
+                    float distance = Vector3.Magnitude(future_pos - transform.position);
+                    float look_ahead_time = distance / 10;
+                    Vector3 previous_future_pos = future_pos;
+                    future_pos = player.transform.position + look_ahead_time * player.GetComponent<player_movement>().velocity * player.GetComponent<player_movement>().movement_direction;
+                    delta_pos = Vector3.Magnitude(future_pos - previous_future_pos);
+                }
+                shooting_direction = future_pos - transform.position;
+                shooting_direction.y = 0;
+                shooting_direction.Normalize();
 
-            GameObject clone = Instantiate(projectile, transform.position + new Vector3(0, 1, 0), transform.rotation);
-            clone.name += "BOSS";
-            attack_timer -= attack_timer_threshold;
+                float angle_to_rotate_turret = Mathf.Rad2Deg * Mathf.Atan2(shooting_direction.x, shooting_direction.z);
+                transform.eulerAngles = new Vector3(0.0f, angle_to_rotate_turret, 0.0f);
+
+                GameObject clone = Instantiate(projectile, transform.position + transform.forward * 3 + new Vector3(0, 1, 0), transform.rotation);
+                clone.name += "BOSS";
+                shoot_attack_timer -= shoot_attack_timer_threshold;
+            }
         }
     }
 }

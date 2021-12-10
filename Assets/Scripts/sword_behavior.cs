@@ -35,7 +35,7 @@ public class sword_behavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision");
+        Debug.Log("collision: " + collision.gameObject.name);
         //reflect back projectiles
         if(collision.gameObject.name.Contains("Projectile") && (gameObject.name.Contains("Advanced") || gameObject.name.Contains("Master")))
         {
