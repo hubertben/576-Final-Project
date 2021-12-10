@@ -35,7 +35,7 @@ public class open_inventory_menu : MonoBehaviour
     private int selected_item_index = 0;
     private Weapon current_item;
 
-    public int player_level = 1;
+    private int player_level = 1;
 
     public GameObject basicSword;
     public GameObject basicGun;
@@ -185,7 +185,7 @@ public class open_inventory_menu : MonoBehaviour
     public List<Weapon> get_shop_weapons(){
         List<Weapon> shop_weapons = new List<Weapon>();
         for(int i = 0; i < all_items_objects.Length; i++){
-            if(all_items_objects[i].level == player_level && all_items_objects[i].locked == true){
+            if(all_items_objects[i].level <= player_level && all_items_objects[i].locked == true){
                 shop_weapons.Add(all_items_objects[i]);
             }
         }
@@ -371,6 +371,10 @@ public class open_inventory_menu : MonoBehaviour
             currentWeapon = all_items_objects[8];
         }
     }
+
+
+
+
 }
 
 public class Weapon
@@ -403,3 +407,9 @@ public class Weapon
         return get_weapon_type() + " " + type;
     }
 }
+
+
+
+
+
+
