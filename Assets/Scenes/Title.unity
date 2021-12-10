@@ -982,7 +982,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'BUILT BY RONAN SALZ, MICHAEL CHANG, AND BEN HUBERT
 
-    576 FINAL PROJECT'
+    576 FINAL PROJECT
+    | https://github.com/hubertben/576-Final-Project'
 --- !u!222 &1860025686
 CanvasRenderer:
   m_ObjectHideFlags: 0
