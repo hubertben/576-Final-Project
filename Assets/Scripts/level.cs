@@ -14,16 +14,17 @@ public class level : MonoBehaviour
     public GameObject palm_tree_prefab;
     public GameObject poplar_tree_prefab;
     public GameObject platform_prefab;
-    public int health_up_bound = 1;
 
     public Slider player_health_bar;
-    public int player_health = 100;
+    float player_health;
     public Slider boss_health_bar;
-    public int boss_health = 10000;
+    float boss_health;
+
 
     // Use this for initialization
     void Start()
     {
+        int health_up_bound = 1;
         //Initialization for the boss
         int boss_x = Random.Range(-35, 35);
         int boss_z = Random.Range(-35, 35);
@@ -88,18 +89,20 @@ public class level : MonoBehaviour
         }
     }
 
-    public void SetPlayerHealth(int health)
+    public void SetPlayerHealth(float health)
     {
         player_health_bar.value = health;
     }
 
-    public void SetBossHealth(int health)
+    public void SetBossHealth(float health)
     {
         boss_health_bar.value = health;
     }
 
     void Update()
     {
+        player_health = GameObject.FindObjectOfType<player_movement>().health;
+        boss_health = GameObject.FindObjectOfType<boss_behavior>().health;
 
         SetPlayerHealth(player_health);
         SetBossHealth(boss_health);

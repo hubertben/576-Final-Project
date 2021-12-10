@@ -21,7 +21,7 @@ public class boss_behavior : MonoBehaviour
     void Start()
     {
         shoot_attack_timer_threshold = 3f;
-        health = 1000;
+        health = 10000;
         player = GameObject.Find("Player");
         animcon = gameObject.GetComponent<Animator>();
     }
