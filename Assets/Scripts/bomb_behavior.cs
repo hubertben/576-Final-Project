@@ -66,19 +66,10 @@ public class bomb_behavior : MonoBehaviour
         //Damage the other object in some way
         Instantiate(smokeCloud, transform.position, transform.rotation);
 
-        if(gameObject.name.Contains("BOSS"))
+        
+        if(collision.gameObject.name.Contains("Boss"))
         {
-            if(collision.gameObject.name.Contains("Player"))
-            {
-                //decrement player health
-            }
-        }
-        else
-        {
-            if(collision.gameObject.name.Contains("Boss"))
-            {
-                //decrement boss health
-            }
+            //decrement boss health
         }
         //MasterBomb special attack
         if(gameObject.name.Contains("Master") && !gameObject.name.Contains("Split"))

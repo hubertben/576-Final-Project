@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4775,6 +4775,7 @@ MonoBehaviour:
   movement_direction: {x: 0, y: 0, z: 0}
   velocity: 0
   walking_velocity: 5
+  health: 0
 --- !u!143 &1455424949
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4805,6 +4806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0891ba2377655c4e83060262f4cd499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  number_of_deaths: 0
   unlocks: 
   basicSword_button: {fileID: 1623619247}
   basicGun_button: {fileID: 515097060}
@@ -6077,7 +6079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400779810525798243, guid: a243ad7aa75ad6c42803c811babf9bb2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4400779810525798243, guid: a243ad7aa75ad6c42803c811babf9bb2, type: 3}
       propertyPath: m_TagString
