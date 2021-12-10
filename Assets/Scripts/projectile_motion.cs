@@ -28,4 +28,13 @@ public class projectile_motion : MonoBehaviour
         startTime -= .01f;
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collided with: " + collision.gameObject.name);
+        if(collision.gameObject.name == "Boss" && !name.Contains("BOSS"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
