@@ -17,9 +17,8 @@ public class fileIO : MonoBehaviour
         string[] lines = System.IO.File.ReadAllLines(path);
         string[][] d = new string[lines.Length][];
         // clean lines by splitting at the colon
-        for (int i = 0; i < lines.Length; i++)
+        for (int i = 0; i < lines.Length - 1; i++)
         {   
-            //Debug.Log(lines[i].Split(':')[0] + " " + lines[i].Split(':')[1]);
             d[i] = lines[i].Split(':');
         }
         
@@ -29,9 +28,7 @@ public class fileIO : MonoBehaviour
             }
         }
 
-        
-
-
+        inventory.GetComponent<open_inventory_menu>().number_of_deaths = Int32.Parse(lines[lines.Length - 1].Split(':')[1]);
     }
 
     void write(string s)

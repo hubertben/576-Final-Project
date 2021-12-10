@@ -1,9 +1,10 @@
 Basic Sword:true
 Advanced Sword:false
 Master Sword:false
-Basic Gun:false
+Basic Gun:true
 Advanced Gun:false
 Master Gun:false
-Basic Bomb:false
+Basic Bomb:true
 Advanced Bomb:false
 Master Bomb:false
+Number_Of_Lives:69

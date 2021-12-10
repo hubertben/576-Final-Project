@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class open_inventory_menu : MonoBehaviour
 {
 
+    public int number_of_deaths = 0;
    
     public int[] unlocks = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     public Button basicSword_button;
@@ -194,8 +195,9 @@ public class open_inventory_menu : MonoBehaviour
 
 
     public void unlock(string s){
+        inventoryMenu = GameObject.Find("InventoryMenu");
         if(!gLOCK){
-            inventoryMenu = GameObject.Find("InventoryMenu");
+            
             animation_controller = GetComponent<Animator>();
             init_canvas();
             init_weapons();
@@ -322,7 +324,7 @@ public class open_inventory_menu : MonoBehaviour
         // if the item is locked, write false
         // if the item is unlocked, write true
 
-        string[] lines = new string[9];
+        string[] lines = new string[10];
         for(int i = 0; i < all_items_objects.Length; i++){
             if(all_items_objects[i].locked == true){
                 lines[i] = all_items_objects[i].get_full_weapon_type() + ":false";
@@ -332,6 +334,7 @@ public class open_inventory_menu : MonoBehaviour
             }
         }
 
+        lines[9] = "Number_Of_Lives:" + number_of_deaths;
         System.IO.File.WriteAllLines(path, lines);
 
     }
