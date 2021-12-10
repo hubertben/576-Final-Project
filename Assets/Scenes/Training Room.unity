@@ -1327,9 +1327,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6904845598966514473, guid: cffb321b0e6935a40ab3c065c502f592, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1293729661}
+    - target: {fileID: 6904845598966514473, guid: cffb321b0e6935a40ab3c065c502f592, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1455424945}
+    - target: {fileID: 6904845598966514473, guid: cffb321b0e6935a40ab3c065c502f592, type: 3}
+      propertyPath: swordSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
     - target: {fileID: 6904845598966514473, guid: cffb321b0e6935a40ab3c065c502f592, type: 3}
       propertyPath: playerAnimCon
       value: 
@@ -1826,7 +1834,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3abf473d50106f44c9611c2c76fd9a91, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1933,6 +1941,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: gun
       objectReference: {fileID: 0}
+    - target: {fileID: 6380232831998901459, guid: 6f598d306e8a174489a2e45e4f1e5afc, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1293729661}
+    - target: {fileID: 6380232831998901459, guid: 6f598d306e8a174489a2e45e4f1e5afc, type: 3}
+      propertyPath: gunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
     - target: {fileID: 6380232831998901459, guid: 6f598d306e8a174489a2e45e4f1e5afc, type: 3}
       propertyPath: projectile
       value: 
@@ -4150,6 +4166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a21726bed8954c8c78687d55b69c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 1293729661}
+  bombSound: {fileID: 8300000, guid: a235d590ef2a04d1b85b61ef4c21337c, type: 3}
   spawnSpot: {fileID: 84780200}
   smokeCloud: {fileID: 7147543579196524969, guid: 59067519a9a8d474caa6bee1406afb7f, type: 3}
   bomb_timer_threshold: 1
@@ -4184,6 +4202,133 @@ CapsuleCollider:
   m_Height: 15.911791
   m_Direction: 1
   m_Center: {x: -0.00000023841858, y: 2.7049615, z: -0.0000005960465}
+--- !u!1 &1293729659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1293729660}
+  - component: {fileID: 1293729661}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1293729660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293729659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1455424947}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1293729661
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293729659}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1309168218
 GameObject:
   m_ObjectHideFlags: 0
@@ -4335,9 +4480,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: e941d0d6425697b499256f89933a0df2, type: 2}
     - target: {fileID: 7144993827154770431, guid: f6d3c889d70f14541b58931b2af4ace3, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1293729661}
+    - target: {fileID: 7144993827154770431, guid: f6d3c889d70f14541b58931b2af4ace3, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1455424945}
+    - target: {fileID: 7144993827154770431, guid: f6d3c889d70f14541b58931b2af4ace3, type: 3}
+      propertyPath: swordSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 35fbad8cdde724f11ba6481f1e64af71, type: 3}
     - target: {fileID: 7144993827154770431, guid: f6d3c889d70f14541b58931b2af4ace3, type: 3}
       propertyPath: playerAnimCon
       value: 
@@ -4568,6 +4721,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 4160948414309659480, guid: ea412e09f56e4f84e8b286743a47c5fb, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1293729661}
+    - target: {fileID: 4160948414309659480, guid: ea412e09f56e4f84e8b286743a47c5fb, type: 3}
+      propertyPath: bombSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a235d590ef2a04d1b85b61ef4c21337c, type: 3}
     - target: {fileID: 4160948414309659480, guid: ea412e09f56e4f84e8b286743a47c5fb, type: 3}
       propertyPath: spawnSpot
       value: 
@@ -4979,7 +5140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3abf473d50106f44c9611c2c76fd9a91, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6022,7 +6183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 516e6f11e8de6624eb6be4bac8c14555, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6079,7 +6240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400779810525798243, guid: a243ad7aa75ad6c42803c811babf9bb2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4400779810525798243, guid: a243ad7aa75ad6c42803c811babf9bb2, type: 3}
       propertyPath: m_TagString
@@ -6138,9 +6299,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 6c121e11c1fbe994a928335538344c18, type: 2}
     - target: {fileID: 8910868186769252684, guid: a243ad7aa75ad6c42803c811babf9bb2, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1293729661}
+    - target: {fileID: 8910868186769252684, guid: a243ad7aa75ad6c42803c811babf9bb2, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1455424945}
+    - target: {fileID: 8910868186769252684, guid: a243ad7aa75ad6c42803c811babf9bb2, type: 3}
+      propertyPath: swordSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
     - target: {fileID: 8910868186769252684, guid: a243ad7aa75ad6c42803c811babf9bb2, type: 3}
       propertyPath: playerAnimCon
       value: 
@@ -6295,6 +6464,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: gun
       objectReference: {fileID: 0}
+    - target: {fileID: 2315764541405510966, guid: 8f780da2379a18d4c95593d16a9b0c54, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1293729661}
+    - target: {fileID: 2315764541405510966, guid: 8f780da2379a18d4c95593d16a9b0c54, type: 3}
+      propertyPath: gunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
     - target: {fileID: 2315764541405510966, guid: 8f780da2379a18d4c95593d16a9b0c54, type: 3}
       propertyPath: ultragun
       value: 
@@ -6806,6 +6983,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1455424947}
     m_Modifications:
     - target: {fileID: 84724621203056761, guid: 5a50f8727983d9043ab8a78932083c42, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1293729661}
+    - target: {fileID: 84724621203056761, guid: 5a50f8727983d9043ab8a78932083c42, type: 3}
+      propertyPath: gunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+    - target: {fileID: 84724621203056761, guid: 5a50f8727983d9043ab8a78932083c42, type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 448040928260143982, guid: 7963969c3d28b164e980f7cdcec9a52d, type: 3}
@@ -7008,6 +7193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a21726bed8954c8c78687d55b69c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 1293729661}
+  bombSound: {fileID: 8300000, guid: a235d590ef2a04d1b85b61ef4c21337c, type: 3}
   spawnSpot: {fileID: 84780200}
   smokeCloud: {fileID: 7147543579196524969, guid: 59067519a9a8d474caa6bee1406afb7f, type: 3}
   bomb_timer_threshold: 1

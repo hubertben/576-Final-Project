@@ -8,6 +8,10 @@ public class gun_behavior : MonoBehaviour
     public Animator playerAnimCon;
     public GameObject projectile;
     public GameObject ultragun;
+
+    public AudioSource audio;
+    public AudioClip gunSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +21,11 @@ public class gun_behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         transform.position = playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position;
         if (Input.GetMouseButtonDown(0) && animcon.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
+            audio.PlayOneShot(gunSound);
             animcon.SetTrigger("ShootingProjectile");
             shoot();
         }

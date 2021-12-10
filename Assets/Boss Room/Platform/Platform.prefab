@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e668fbf2b5394bbf97a07c5c8bf014e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 0}
+  healthSound: {fileID: 8300000, guid: 7e9ee6dc04a5d40d1a5dfc4beb9865e7, type: 3}
 --- !u!54 &2881740476477283588
 Rigidbody:
   m_ObjectHideFlags: 0

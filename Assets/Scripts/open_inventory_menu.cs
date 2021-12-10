@@ -195,7 +195,7 @@ public class open_inventory_menu : MonoBehaviour
 
 
     public void unlock(string s){
-        inventoryMenu = GameObject.Find("InventoryMenu");
+        //inventoryMenu = GameObject.Find("InventoryMenu");
         if(!gLOCK){
             
             animation_controller = GetComponent<Animator>();

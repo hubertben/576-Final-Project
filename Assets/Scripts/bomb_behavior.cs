@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class bomb_behavior : MonoBehaviour
 {
+    public AudioSource audio;
+    public AudioClip bombSound;
     public GameObject spawnSpot; //empty gameobject to spawn bombs at 
     public GameObject smokeCloud; //smoke cloud to spawn after bomb makes contace with something
     public float bomb_timer_threshold; //how long in between 
@@ -51,6 +53,8 @@ public class bomb_behavior : MonoBehaviour
         //if we can throw a bomb, do it
         if(Input.GetMouseButtonDown(0) && bomb_timer >= bomb_timer_threshold && !gameObject.name.Contains("Clone"))
         {
+            audio.PlayOneShot(bombSound);
+            
             GameObject clone = Instantiate(gameObject, spawnSpot.transform.position, spawnSpot.transform.rotation);
             clone.GetComponent<MeshRenderer>().enabled = true;
             clone.GetComponent<CapsuleCollider>().enabled = true;
@@ -79,13 +83,16 @@ public class bomb_behavior : MonoBehaviour
         //MasterBomb special attack
         if(gameObject.name.Contains("Master") && !gameObject.name.Contains("Split"))
         {
+            audio.PlayOneShot(bombSound);
             //frontmost vertex of triangle
             GameObject clone = Instantiate(gameObject, gameObject.transform.position + new Vector3(1f, 5f, 1f), gameObject.transform.rotation);
             clone.name += "Split";
 
+            audio.PlayOneShot(bombSound);
             GameObject clone1 = Instantiate(gameObject, gameObject.transform.position + new Vector3(-1f, 5f, -1f), gameObject.transform.rotation);
             clone1.name += "Split";
 
+            audio.PlayOneShot(bombSound);
             GameObject clone2 = Instantiate(gameObject, transform.position + new Vector3(0, 8f, 0), transform.rotation);
             clone2.name += "Split";
         }

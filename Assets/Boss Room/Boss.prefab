@@ -9565,6 +9565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 928632129613956425, guid: eeb0f22f293108943826e94f71640361, type: 3}
   health: 10000
+  audio: {fileID: 0}
+  bossSound: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
 --- !u!136 &206898191893500822
 CapsuleCollider:
   m_ObjectHideFlags: 0

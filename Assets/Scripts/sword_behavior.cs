@@ -9,6 +9,9 @@ public class sword_behavior : MonoBehaviour
     public GameObject MasterSwordProjectile;
     public GameObject player;
 
+    public AudioSource audio;
+    public AudioClip swordSound;
+
     private void Start()
     {
         animcon = GetComponent<Animator>();
@@ -23,6 +26,9 @@ public class sword_behavior : MonoBehaviour
                                          playerAnimCon.GetBoneTransform(HumanBodyBones.RightHand).position.z);
         if (Input.GetMouseButtonDown(0) && animcon.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
+
+            audio.PlayOneShot(swordSound);
+
             animcon.SetTrigger("SwingingSword");
             if(gameObject.name.Contains("Master"))
             {

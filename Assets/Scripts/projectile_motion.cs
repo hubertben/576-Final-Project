@@ -32,7 +32,7 @@ public class projectile_motion : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if(collision.gameObject.name.Contains("Wall"))
+        if(collision.gameObject.name.Contains("Wall") || collision.gameObject.name.Contains("Projectile"))
         {
             Destroy(gameObject);
         }

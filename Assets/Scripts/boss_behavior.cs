@@ -18,9 +18,13 @@ public class boss_behavior : MonoBehaviour
 
     private Vector3 dir_to_player;
 
+    public AudioSource audio;
+    public AudioClip bossSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        audio = GameObject.Find("Audio Source").GetComponent<AudioSource>();
         shoot_attack_timer_threshold = 3f;
         health = 10000;
         player = GameObject.Find("Player");
@@ -59,6 +63,9 @@ public class boss_behavior : MonoBehaviour
             }
             else
             {
+
+                audio.PlayOneShot(bossSound);
+
                 animcon.SetBool("walking", false);
 
                 Vector3 future_pos = player.transform.position;

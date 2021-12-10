@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class health_potion : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public AudioSource audio;
+    public AudioClip healthSound;
+
+    private void Start()
     {
-        
+        audio = GameObject.Find("Audio Source").GetComponent<AudioSource>();    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-        
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name == "Player")
         {
+            audio.PlayOneShot(healthSound);
             GameObject.FindObjectOfType<player_movement>().health += 30;
             
             Destroy(gameObject);
