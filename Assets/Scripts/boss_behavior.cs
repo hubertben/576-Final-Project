@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class boss_behavior : MonoBehaviour
 {
@@ -29,11 +30,19 @@ public class boss_behavior : MonoBehaviour
         health = 10000;
         player = GameObject.Find("Player");
         animcon = gameObject.GetComponent<Animator>();
+
+        health = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(health <= 0)
+        {
+            SceneManager.LoadScene(3);
+        }
+
         dir_to_player = player.transform.position - transform.position;
         dir_to_player.Normalize();
         

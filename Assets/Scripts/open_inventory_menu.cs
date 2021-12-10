@@ -74,6 +74,11 @@ public class open_inventory_menu : MonoBehaviour
         }
 
         currentWeapon = all_items_objects[0];
+
+        if(inventoryMenu.activeInHierarchy)
+        {
+            inventoryMenu.SetActive(false);
+        }
     }
 
     private void init_buttons(){

@@ -16,6 +16,8 @@ public class player_movement : MonoBehaviour
     private float crouch_velocity;
     private float jump_velocity;
 
+    private static bool created = false;
+
     public float health;
 
     private float turning_speed;
@@ -23,7 +25,16 @@ public class player_movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+
+        if(!created)
+        {
+            DontDestroyOnLoad(gameObject);
+            created = true;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         health = 100;
         animation_controller = GetComponent<Animator>();
@@ -42,6 +53,16 @@ public class player_movement : MonoBehaviour
     void Update()
     {
 
+        if(SceneManager.GetActiveScene().name == "Win")
+        {
+            Destroy(gameObject);
+        }
+
+        if(health < 0)
+        {
+            health = 100;
+            SceneManager.LoadScene(0);
+        }
 
         if (Input.GetKeyDown(KeyCode.P) && Time.timeScale > 0)
         {
