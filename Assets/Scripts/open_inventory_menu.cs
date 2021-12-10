@@ -170,16 +170,16 @@ public class open_inventory_menu : MonoBehaviour
         all_items_objects = new Weapon[9];
 
         all_items_objects[0] = new Weapon(1, 20, 1, 1, "Sword", 0);
-        all_items_objects[1] = new Weapon(2, 30, 2, 2, "Sword", 1);
-        all_items_objects[2] = new Weapon(3, 40, 3, 3, "Sword", 2);
+        all_items_objects[1] = new Weapon(2, 50, 2, 2, "Sword", 1);
+        all_items_objects[2] = new Weapon(3, 100, 3, 3, "Sword", 2);
 
         all_items_objects[3] = new Weapon(1, 20, 1, 1, "Gun", 3);
         all_items_objects[4] = new Weapon(2, 30, 2, 2, "Gun", 4);
         all_items_objects[5] = new Weapon(3, 40, 3, 3, "Gun", 5);
 
-        all_items_objects[6] = new Weapon(1, 20, 1, 1, "Bomb", 6);
-        all_items_objects[7] = new Weapon(2, 30, 2, 2, "Bomb", 7);
-        all_items_objects[8] = new Weapon(3, 40, 3, 3, "Bomb", 8);
+        all_items_objects[6] = new Weapon(1, 50, 1, 1, "Bomb", 6);
+        all_items_objects[7] = new Weapon(2, 100, 2, 2, "Bomb", 7);
+        all_items_objects[8] = new Weapon(3, 200, 3, 3, "Bomb", 8);
         
     }
 
