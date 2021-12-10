@@ -42,6 +42,8 @@ public class projectile_motion : MonoBehaviour
             if(collision.gameObject.name == "Player")
             {
                 //decrement player health by dmg
+                GameObject.FindObjectOfType<player_movement>().health -= 10;
+                
                 Destroy(gameObject);
             }
         }
@@ -49,7 +51,12 @@ public class projectile_motion : MonoBehaviour
         {
             if (collision.gameObject.name == "Boss")
             {
+                GameObject inventory = GameObject.Find("Player");
+                float current_damage = inventory.GetComponent<open_inventory_menu>().currentWeapon.damage;
+                Debug.Log(current_damage);
+
                 //decrement boss health by dmg
+                GameObject.FindObjectOfType<boss_behavior>().health -= current_damage;
                 Destroy(gameObject);
             }
         }

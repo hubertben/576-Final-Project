@@ -21,8 +21,8 @@ public class boss_behavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shoot_attack_timer_threshold = 2f;
-        health = 1000;
+        shoot_attack_timer_threshold = 3f;
+        health = 10000;
         player = GameObject.Find("Player");
         animcon = gameObject.GetComponent<Animator>();
     }
