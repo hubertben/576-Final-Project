@@ -32,7 +32,7 @@ public class projectile_motion : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if(collision.gameObject.name.Contains("Wall") || collision.gameObject.name.Contains("Projectile"))
+        if(!collision.gameObject.name.Contains("ultragun") && (collision.gameObject.name.Contains("Wall") || collision.gameObject.name.Contains("Projectile")))
         {
             Destroy(gameObject);
         }
@@ -55,7 +55,7 @@ public class projectile_motion : MonoBehaviour
                 float current_damage = inventory.GetComponent<open_inventory_menu>().currentWeapon.damage;
 
                 //decrement boss health by dmg
-                GameObject.FindObjectOfType<boss_behavior>().health -= current_damage;
+                GameObject.FindObjectOfType<boss_behavior>().health -= 100;
                 Destroy(gameObject);
             }
         }

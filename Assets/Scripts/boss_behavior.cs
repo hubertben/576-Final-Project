@@ -27,11 +27,9 @@ public class boss_behavior : MonoBehaviour
     {
         audio = GameObject.Find("Audio Source").GetComponent<AudioSource>();
         shoot_attack_timer_threshold = 3f;
-        health = 10000;
+        health = 1000;
         player = GameObject.Find("Player");
         animcon = gameObject.GetComponent<Animator>();
-
-        health = 1;
     }
 
     // Update is called once per frame

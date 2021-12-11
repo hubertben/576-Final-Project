@@ -21,7 +21,8 @@ public class ultragun_gun_behavior : MonoBehaviour
         shot_timer += Time.deltaTime;
         if(shot_timer >= shot_timer_threshold)
         {
-            Instantiate(projectile, transform.position, transform.rotation);
+            GameObject clone = Instantiate(projectile, transform.position, transform.rotation);
+            clone.name += "ultragun";
             shot_timer -= shot_timer_threshold;
         }
     }
